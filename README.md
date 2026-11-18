@@ -26,13 +26,13 @@
 
 ## From download to your next adventure
 
-**1 · Find & import**  
+**1 · Find & import**<br>
 Open **Discover & import**. Use a Workshop URL or item number, the Nexus workflow, or files already on your PC. Downloads enter the manager's library.
 
-**2 · Choose & order**  
+**2 · Choose & order**<br>
 Open **Mod library**, click **+ Add to profile**, then open **Load order**. Tick the packages to activate and arrange them top to bottom.
 
-**3 · Review & activate**  
+**3 · Review & activate**<br>
 Click **Activate Mods**. Review the proposed changes, close the game, tick the confirmation and choose **Back up & apply**. Restart Conan to load the selection.
 
 [Follow the illustrated guide, with numbered click targets →](docs/USER-GUIDE.md)
@@ -73,5 +73,5 @@ Changing or removing mods can affect an existing world. Automatic mod updates, d
 
 ---
 
-An independent community project. Not affiliated with or endorsed by Funcom, Valve or Nexus Mods.  
+An independent community project. Not affiliated with or endorsed by Funcom, Valve or Nexus Mods.<br>
 [Artwork and sound credits](docs/CREDITS.md) · [Usage and troubleshooting](docs/USER-GUIDE.md)
