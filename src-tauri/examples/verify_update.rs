@@ -5,11 +5,10 @@ use tauri_plugin_updater::UpdaterExt;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<_> = env::args().collect();
-    if args.len() != 3 {
-        return Err("Usage: verify_update <manifest.json> <setup.exe>".into());
+    let online = args.len() == 2 && args[1] == "--check-online";
+    if args.len() != 3 && !online {
+        return Err("Usage: verify_update <manifest.json> <setup.exe> OR --check-online".into());
     }
-    let metadata: serde_json::Value = serde_json::from_slice(&fs::read(&args[1])?)?;
-    let mut payload = fs::read(&args[2])?;
     let mut context = tauri::test::mock_context(tauri::test::noop_assets());
     *context.config_mut() = serde_json::from_str(include_str!("../tauri.conf.json"))?;
     context.config_mut().app.windows.clear();
@@ -19,9 +18,21 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let updater = app
         .handle()
         .updater_builder()
+        .timeout(std::time::Duration::from_secs(20))
         // Release verification must accept the build's own version too.
         .version_comparator(|_, _| true)
         .build()?;
+    if online {
+        let update = tauri::async_runtime::block_on(updater.check())?
+            .ok_or("Endpoint returned no release content")?;
+        println!(
+            "Online feed version: {}. Asset: {}",
+            update.version, update.download_url
+        );
+        return Ok(());
+    }
+    let metadata: serde_json::Value = serde_json::from_slice(&fs::read(&args[1])?)?;
+    let mut payload = fs::read(&args[2])?;
     let update = updater
         .restore_update(metadata.clone())?
         .ok_or("Missing update")?;

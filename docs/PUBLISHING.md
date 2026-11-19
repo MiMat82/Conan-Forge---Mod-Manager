@@ -23,6 +23,8 @@ cargo run --manifest-path src-tauri/Cargo.toml --example verify_update -- releas
 
 The Rust example uses the actual updater to verify the signature/version and reject altered bytes, a relabeled version and an invalid signature. It opens neither the manager's database nor an installer. The feed-preparation script alone does not cryptographically verify anything.
 
+For a read-only check of the version currently served to the updater, run `cargo run --manifest-path src-tauri/Cargo.toml --example verify_update -- --check-online`. This diagnostic reports the feed version regardless of the installed version; it never downloads or installs an update. An immediate post-publication check may still see the previous feed; wait and use the app's normal check again before treating publication as complete.
+
 6. Qualify installation, startup, an actual update from an older updater-enabled test build, and retained profiles/library/game files. Record the precise artifact hashes and any untested boundaries. Prepare source/portable packages and SHA-256 checksums; exclude private data, signing material and development caches.
 
 ## Publish in this order

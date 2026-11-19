@@ -11,10 +11,10 @@
 | Branding | Supplied ConanForge logo, Windows icon, transparent skippable startup with smithing sounds | Implemented |
 | 3 | Forge-inspired styling, visible 1–2–3 workflow, selected-versus-applied language, persistent activation action and completion/restart guidance | Implemented in v0.3.0 |
 | 4 | Reviewed deletion of unused imported bundles; per-bundle update checks; clear managed/external copy labels | Workshop checks included; Nexus checks disabled in public builds |
-| 5 | App-update startup notification, signed downloads, explicit installation/restart and database backup | v0.5.0 public preview |
+| 5 | App-update startup notification, signed downloads, explicit installation/restart and database backup | Implemented in v0.5.0; actual v0.5.0 → v0.5.1 upgrade and preservation verified |
 | First release | Windows EXE installer, portable ZIP, source, MIT license, checksums, public Nexus boundary and illustrated documentation | v0.4.1 public preview |
 
-The project owner has reported successful in-game use of local imports and Workshop downloads. See [phase 4 validation](PHASE4-VALIDATION.md) for the latest test scope. Earlier UI checks with documentation fixtures exercise selection, preview and explicit confirmation; fixtures are not proof of live provider behavior.
+The project owner has reported successful in-game use of local imports and Workshop downloads. See [app-update validation](RELEASE-VALIDATION-v0.5.1.md) and [library-maintenance validation](PHASE4-VALIDATION.md) for tested scope. Earlier UI checks with documentation fixtures exercise selection, preview and explicit confirmation; fixtures are not proof of live provider behavior.
 
 ## Before a stable release
 

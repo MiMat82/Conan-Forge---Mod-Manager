@@ -65,6 +65,8 @@ Click **Activate Mods**. Review the proposed changes, close the game, tick the c
 
 **Public preview: v0.5.1 for Windows x64.** [Download the EXE installer](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/download/v0.5.1/ConanForge-v0.5.1-windows-x64-setup.exe), run the setup wizard, then open **ConanForge Mod Manager** from the Start menu. Setup installs for your current Windows user and downloads Microsoft WebView2 if needed (internet required). Windows Authenticode signing is not yet included; the installer has a separate signature verified by the in-app updater.
 
+Already running installed v0.5.0? Use **App updates → Download app update → Install and restart**. The complete upgrade to v0.5.1 was verified on the project owner's PC, including automatic restart and retained profiles/mod files. [Read the validation report →](docs/RELEASE-VALIDATION-v0.5.1.md)
+
 Prefer a portable app? The [Windows ZIP remains available](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/download/v0.5.1/ConanForge-v0.5.1-windows-x64.zip): extract the whole folder and run **ConanForge.exe**. [Installation and removal instructions](docs/INSTALLER.md). Neither download includes mods or game files.
 
 The release includes checksums, source code and third-party notices. **Nexus uses browser download and manual import in this public build.** Direct Nexus API downloads and update checks await application registration and account testing. Clean-machine installation and every mod combination have not been qualified. See the [release notes](docs/RELEASE-v0.5.1.md) and [roadmap](docs/ROADMAP.md).
