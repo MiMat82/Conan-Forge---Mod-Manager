@@ -23,3 +23,7 @@ Database backup integrity, retained prior backups, missing confirmation, backup 
 The verification example initially lacked the Windows Common Controls manifest required by its native imports. Its example-only manifest was corrected, then all four signature checks passed using the actual updater library with a mock window runtime. No manager database or installer is opened by that example.
 
 Windows Authenticode signing, a clean PC without WebView2, an interrupted installer/power loss and every provider/mod combination remain unqualified. This is a public preview, not a stable-release claim. Full artifact hashes are in the release's `SHA256SUMS.txt` and accompanying validation text.
+
+## Public release readback
+
+The public v0.5.0 installer and signature were downloaded without GitHub authentication and matched the locally verified SHA-256 hashes. The actual updater again accepted the installer/version and rejected changed bytes, a relabeled version and an invalid signature. Only then was the update feed published. Its public raw URL returned HTTP 200 with the expected version, asset URL and signature. The installed v0.5.0 application then completed a real GitHub check and displayed **You're up to date**, followed by a normal exit. The initial missing-feed error seen during development is resolved.
