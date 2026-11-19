@@ -254,7 +254,7 @@ export default function App() {
         <div className="sidebar-bottom">
           <span className="status-dot" /> Local workspace
           <p>Workshop originals stay untouched.</p>
-          <small>v0.5.0 · Public preview</small>
+          <small>v0.5.1 · Public preview</small>
         </div>
       </aside>
       <main>

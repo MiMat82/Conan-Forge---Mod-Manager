@@ -94,7 +94,7 @@ export default function AppUpdates({ ready, shown, unsaved, blocked, onOpen, onI
       <div className="actions"><button className="primary" onClick={() => void check()} disabled={!info || working}>
         {phase === "checking" ? "Checking GitHub…" : "Check for app updates"}</button>
         <button onClick={openReleases} disabled={phase === "installing"}>View GitHub releases ↗</button></div>
-      {phase === "current" && <p className="alert success" role="status">You’re up to date. No newer app version is available.</p>}
+      {phase === "current" && <p className="alert success" role="status">You’re up to date. ConanForge {info?.currentVersion} is the newest available version.</p>}
       {error && <p className="alert error" role="alert">{error}</p>}
       {info && !info.installed && <p className="alert">This is a portable or development copy. Use the Windows installer once to enable installation of updates from the app. Your existing profiles and library will remain available.</p>}
       {candidate && <div className="app-update-card">

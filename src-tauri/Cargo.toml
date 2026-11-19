@@ -1,6 +1,6 @@
 [package]
 name = "conan-mod-manager"
-version = "0.5.0"
+version = "0.5.1"
 license = "MIT"
 description = "Local-first Conan Exiles Enhanced mod profile manager"
 edition = "2024"

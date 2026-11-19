@@ -13,7 +13,7 @@ window.__TAURI_INTERNALS__ = {invoke:async(command,args)=>{
   window.__docsCalls.push(structuredClone({command,action}));
   if(command==='app_update') {
     const state=window.__appUpdateTest;
-    if(action.kind==='status')return {currentVersion:'0.5.0',checkAtStartup:state.checkAtStartup,installed:state.installed};
+    if(action.kind==='status')return {currentVersion:'0.5.1',checkAtStartup:state.checkAtStartup,installed:state.installed};
     if(action.kind==='preference'){state.checkAtStartup=action.enabled;return action.enabled;}
     if(action.kind==='check'){if(state.error)throw Error(state.error);return structuredClone(state.next);}
     if(action.kind==='download'){args.progress.onmessage?.({bytes:1024,total:1024});return {...state.next,downloaded:true};}

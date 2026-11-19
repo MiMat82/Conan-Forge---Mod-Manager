@@ -1,6 +1,6 @@
 # ConanForge: illustrated user guide
 
-**For the v0.5.0 public preview.** Follow the numbered circles in the walkthrough images, which retain the v0.3.0 layout. Library and Nexus images show v0.4.1; the app-update image shows v0.5.0 with a fictional future update. All images use fictional example mods and neutral paths; your filenames, folders and sizes will differ. The pictured Workshop number is an example, not a recommended download.
+**For the v0.5.1 public preview.** Follow the numbered circles in the walkthrough images, which retain the v0.3.0 layout. Library and Nexus images show v0.4.1; the app-update image shows v0.5.0 with a fictional future update. All images use fictional example mods and neutral paths; your filenames, folders and sizes will differ. The pictured Workshop number is an example, not a recommended download.
 
 [Back to the product page](../README.md) · [Roadmap](ROADMAP.md)
 
@@ -8,16 +8,16 @@
 
 The application requires Windows x64, the Microsoft Edge WebView2 runtime and a Conan Exiles client installation. Online downloads also need internet access; scanning, profiles and local imports work locally.
 
-Get the package from the [official v0.5.0 release](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.5.0):
+Get the package from the [official v0.5.1 release](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.5.1):
 
-1. Download **`ConanForge-v0.5.0-windows-x64-setup.exe`**. The source ZIP is for developers.
+1. Download **`ConanForge-v0.5.1-windows-x64-setup.exe`**. The source ZIP is for developers.
 2. Run the setup wizard, review the license and choose the installation folder. Setup creates a Start menu shortcut and an entry in Windows Installed apps.
 3. Open **ConanForge Mod Manager** from the Start menu or the setup wizard's Finish page.
 4. The transparent logo intro plays three short smithing strikes, then opens the manager. **Skip intro**, **Escape** or **Enter** opens it immediately.
 
 Setup installs for your current user and downloads Microsoft WebView2 if it is missing; internet is needed for that step. The preview is unsigned, so Windows may show an unknown-publisher warning. Do not disable Windows protection to run an untrusted copy.
 
-**Portable alternative:** download `ConanForge-v0.5.0-windows-x64.zip`, choose **Extract All**, and run `ConanForge.exe` from the extracted folder. Keep the documentation and license files. If needed, install the Evergreen Runtime from [Microsoft's WebView2 page](https://developer.microsoft.com/en-us/microsoft-edge/webview2/).
+**Portable alternative:** download `ConanForge-v0.5.1-windows-x64.zip`, choose **Extract All**, and run `ConanForge.exe` from the extracted folder. Keep the documentation and license files. If needed, install the Evergreen Runtime from [Microsoft's WebView2 page](https://developer.microsoft.com/en-us/microsoft-edge/webview2/).
 
 See [installation and removal](INSTALLER.md) for preserving your existing profiles and imported library.
 
@@ -158,7 +158,7 @@ Do not expect imported mods to appear in the game before this step.
 2. Review the notes, then click **Download app update**. Downloading does not install it.
 3. Save your edits and finish any mod downloads/imports. Choose **Install and restart…**, tick the confirmation and confirm installation.
 
-ConanForge verifies the installer's signature and version, backs up its database, runs setup and reopens. Existing mods, profiles and game files are retained. If you use v0.4.1 or a portable copy, run the v0.5.0 Windows installer once first. See [installation and recovery details](INSTALLER.md).
+ConanForge verifies the installer's signature and version, backs up its database, runs setup and reopens. Existing mods, profiles and game files are retained. If you use v0.4.1 or a portable copy, run the current Windows installer once first. See [installation and recovery details](INSTALLER.md).
 
 This updates the manager application. Use **Mod library → Check for updates** to check a tracked Workshop mod instead.
 

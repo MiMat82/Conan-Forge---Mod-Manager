@@ -1,6 +1,6 @@
 # ConanForge Mod Manager
 
-Public preview, version 0.5.0. Windows desktop application for Conan Exiles Enhanced using Tauri 2, Rust, React + TypeScript, Vite and bundled SQLite. This is an independent manager; it is not affiliated with Funcom, Valve or Nexus Mods.
+Public preview, version 0.5.1. Windows desktop application for Conan Exiles Enhanced using Tauri 2, Rust, React + TypeScript, Vite and bundled SQLite. This is an independent manager; it is not affiliated with Funcom, Valve or Nexus Mods.
 
 The supplied ConanForge logo now appears in the manager and Windows application icon. Startup shows a transparent floating logo with three brief forge strikes, then opens the manager. Click **Skip intro**, press **Escape** or **Enter** to open immediately. Reduced-motion preferences are respected, and audio/page failure has a fallback. Existing profiles, settings and app-data location are retained. See [branding and sound credits](BRANDING.md).
 
@@ -18,7 +18,7 @@ Public releases must be built with default features. Do not enable `nexus-testin
 
 ## Run the app
 
-Download the EXE installer from the [v0.5.0 release](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.5.0), run setup, then use the Start menu shortcut. The portable ZIP is also available. Windows Authenticode signing is not yet included. In-app updates verify a separate cryptographic signature tied to the installer version. See [installer instructions](INSTALLER.md) and the [publisher workflow](PUBLISHING.md).
+Download the EXE installer from the [v0.5.1 release](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.5.1), run setup, then use the Start menu shortcut. The portable ZIP is also available. Windows Authenticode signing is not yet included. In-app updates verify a separate cryptographic signature tied to the installer version. See [installer instructions](INSTALLER.md) and the [publisher workflow](PUBLISHING.md).
 
 To develop from source, install Node.js 26, Rust via rustup, and the Visual Studio C++ Build Tools/Windows SDK. The project pins Rust 1.99.1; it does not change your global toolchain.
 

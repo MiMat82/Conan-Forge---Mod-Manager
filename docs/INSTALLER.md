@@ -2,7 +2,7 @@
 
 ## Install
 
-1. Download **ConanForge-v0.5.0-windows-x64-setup.exe** from the [official release](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.5.0).
+1. Download **ConanForge-v0.5.1-windows-x64-setup.exe** from the [official release](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.5.1).
 2. Close any open ConanForge copy, run setup and choose an installation folder.
 3. Open **ConanForge Mod Manager** from the Windows Start menu.
 
@@ -10,7 +10,7 @@ Setup installs for your current Windows user on Windows x64. If Microsoft Edge W
 
 Existing profiles and imported packages stay under `%LOCALAPPDATA%\com.local.conanmodmanager`. Setup installs the manager and documentation. Mod activation remains an explicit action inside the app.
 
-**Upgrading from v0.4.1:** install v0.5.0 manually once. Older copies have no updater. Future releases can be installed through **App updates** in the installed v0.5.0 app. Portable copies can check for updates and open the releases page; use setup once to enable in-app installation.
+**Upgrading from v0.4.1:** install the current version manually once. Older copies have no updater. **Upgrading from installed v0.5.0:** use **App updates → Download app update → Install and restart**. Portable copies can check for updates and open the releases page; use setup once to enable in-app installation.
 
 ## Update from the app
 
