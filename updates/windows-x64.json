@@ -1,0 +1,11 @@
+{
+  "version": "0.5.0",
+  "notes": "Startup notifications for new app releases, verified downloads, and explicit Install and restart. Your saved profiles and imported mods are retained. Installation creates a backup of the app database first.",
+  "pub_date": "2026-11-19T17:52:13.600Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSREhtaThack10ZnhDcUZvWE5lK3ZZcFFDdHN1M0lJaE5QazhMbC9JeXl2UVhLUEZmL04vSEN0UWt5NDVDT3haSG1yUGJrY2c4Y3hVd2VOUXFYeGo5QVhvcGRzT005dkFFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk1MTEwNzE3CWZpbGU6Q29uYW5Gb3JnZSBNb2QgTWFuYWdlcl8wLjUuMF94NjQtc2V0dXAuZXhlCXZlcnNpb246MC41LjAKSjZBQWN1L3pTMFlSVzJkWnNYUWNISDA1LzdnRGxwTHJERnBFb00wL2YxUlRkVTdZWHVXQWlaYWs1S0RkSFgxUkovRGF3TVEvSitDa2h5NUl1dmI4Q1E9PQo=",
+      "url": "https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/download/v0.5.0/ConanForge-v0.5.0-windows-x64-setup.exe"
+    }
+  }
+}
