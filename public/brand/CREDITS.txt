@@ -1,0 +1,14 @@
+ConanForge Mod Manager branding
+
+Logo supplied by the project owner. Transparent cutout and emblem-only icon
+adaptations prepared with the built-in image-generation tool.
+
+Startup sound: "Smithing Sound" by Hansjörg Malthaner (Varkalandar)
+Source: https://opengameart.org/content/smithing-sound
+Creator: https://opengameart.org/users/varkalandar
+License: Creative Commons Attribution 3.0 Unported
+https://creativecommons.org/licenses/by/3.0/
+Changes: three strikes excerpted and retimed, fades, short echoes, and level
+adjustment.
+
+Preserve this attribution and the accompanying license when redistributing.

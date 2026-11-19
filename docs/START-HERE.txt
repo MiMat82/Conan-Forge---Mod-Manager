@@ -1,0 +1,53 @@
+CONANFORGE MOD MANAGER - v0.4.1 PUBLIC PREVIEW
+
+Extract this entire folder, then run ConanForge.exe.
+Windows x64 and Microsoft Edge WebView2 Runtime are required.
+This portable preview is unsigned and has no installer.
+
+The floating logo plays three short smithing strikes at startup. Click Skip intro,
+or press Escape or Enter, to open the manager immediately.
+
+1. CONNECT YOUR GAME
+The app looks for Conan at startup. Check Locations & storage. If needed, use
+Choose folder or Choose .exe, then Save locations & scan.
+
+2. FIND & IMPORT
+Use Discover & import for a Steam Workshop URL/ID or an authorized local download.
+SteamCMD is found or downloaded from Valve and verified when a download needs it.
+For Nexus, use Browse website, download there, then Import ZIP / PAK or import an
+extracted folder. Direct Nexus API downloads are disabled in this public preview.
+Subscribed Workshop originals stay untouched.
+
+3. CHOOSE & ORDER
+In Mod library, click Add to profile. Open Load order, tick the mods to include,
+and arrange them with the arrows. Saving the profile does not activate it.
+
+4. REVIEW & ACTIVATE
+Click Activate Mods. Check the file copies and load list. Close Conan and any
+server, back up important world saves separately, and tick the confirmation.
+Choose Back up & apply. Restart Conan afterward to load the selection.
+
+LIBRARY MAINTENANCE
+Check for updates checks a tracked Workshop import without downloading or applying.
+Delete library copy reviews the entire imported bundle and refuses deletion while
+a saved profile uses it. Game copies and original downloads remain separate.
+Conflicting game files are blocked; automatic version replacement is not included.
+
+LOCAL DATA
+Profiles, settings, imported library and load-list backups remain at:
+%LOCALAPPDATA%\com.local.conanmodmanager\
+Deleting this portable program folder does not remove that data.
+
+GUIDES AND LICENSES
+docs/USER-GUIDE.md - numbered pictures and troubleshooting
+docs/RELEASE-v0.4.1.md - release features and limitations
+docs/RELEASE-VALIDATION-v0.4.1.md - verification results
+docs/SAFETY.md - backup/recovery details
+https://github.com/MiMat82/Conan-Forge---Mod-Manager
+
+Original source and documentation use MIT. Keep LICENSE, THIRD_PARTY_NOTICES.md,
+THIRD_PARTY_LICENSES.txt and licenses/ with this package.
+
+Automatic backups cover the previous modlist.txt, not world saves or mod packages.
+Back up ConanSandbox/Saved separately. Check compatibility, dependencies and load
+order with each mod author. No game files, mod downloads or SteamCMD are bundled.

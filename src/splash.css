@@ -1,0 +1,96 @@
+:root {
+  font-family: "Segoe UI", sans-serif;
+  color-scheme: dark;
+  background: transparent;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#forge-logo {
+  display: block;
+  width: min(94vw, 540px);
+  height: min(86vh, 540px);
+  object-fit: contain;
+  opacity: 0;
+}
+.playing #forge-logo {
+  animation: forge-reveal 3.2s both;
+}
+#skip {
+  margin-top: -18px;
+  position: relative;
+  border: 1px solid #ba8e5e80;
+  border-radius: 999px;
+  padding: 7px 15px;
+  color: #f2dfc4;
+  background: #18120edf;
+  font:
+    12px "Segoe UI",
+    sans-serif;
+  cursor: pointer;
+}
+#skip span {
+  margin-left: 9px;
+  color: #d79959;
+}
+#skip:hover {
+  background: #312419;
+}
+#skip:focus-visible {
+  outline: 2px solid #ffbc67;
+  outline-offset: 3px;
+}
+@keyframes forge-reveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.78);
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  8% {
+    opacity: 1;
+    transform: scale(1.025);
+    filter: drop-shadow(0 0 18px #f46422bb);
+  }
+  16%,
+  30%,
+  45%,
+  61%,
+  78%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 4px 5px #0008);
+  }
+  36% {
+    opacity: 1;
+    transform: scale(1.012) translateY(1px);
+    filter: drop-shadow(0 0 12px #f46422aa);
+  }
+  67% {
+    opacity: 1;
+    transform: scale(1.018) translateY(1px);
+    filter: drop-shadow(0 0 19px #f46422bb);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .playing #forge-logo {
+    animation: none;
+    opacity: 1;
+  }
+}

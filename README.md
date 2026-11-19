@@ -6,7 +6,7 @@
 <p align="center"><strong>A Windows workspace for Conan Exiles Enhanced mods.</strong><br>Bring in your mods, build a load order, and review every change before it reaches your game.</p>
 <p align="center">
   <a href="docs/USER-GUIDE.md"><strong>Illustrated user guide</strong></a> ·
-  <a href="#availability">Availability</a> ·
+  <a href="https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.4.1"><strong>Download for Windows</strong></a> ·
   <a href="docs/ROADMAP.md">Development roadmap</a> ·
   <a href="https://github.com/MiMat82/Conan-Forge---Mod-Manager/issues">Feedback</a>
 </p>
@@ -17,7 +17,7 @@
 
 ![ConanForge's load-order screen showing selected and unselected mods, the three-step workflow, and the Activate Mods button.](docs/images/app-overview.webp)
 
-*Actual v0.3.0 interface, rendered with fictional example packages and neutral folders for documentation. These are not mod recommendations or evidence of a provider download.*
+*Real interface with fictional example packages and neutral folders. The numbered walkthrough images retain the v0.3.0 layout; the library and Nexus screenshots below show v0.4.1. These are not mod recommendations.*
 
 | Find your mods | Shape your load order | Review and activate |
 | --- | --- | --- |
@@ -27,7 +27,7 @@
 ## From download to your next adventure
 
 **1 · Find & import**<br>
-Open **Discover & import**. Use a Workshop URL or item number, the Nexus workflow, or files already on your PC. Downloads enter the manager's library.
+Open **Discover & import**. Use a Workshop URL or item number, or import a mod you downloaded from Nexus or another author-approved source. Downloads enter the manager's library.
 
 **2 · Choose & order**<br>
 Open **Mod library**, click **+ Add to profile**, then open **Load order**. Tick the packages to activate and arrange them top to bottom.
@@ -53,6 +53,7 @@ Click **Activate Mods**. Review the proposed changes, close the game, tick the c
 
 - **Game detection:** checks Steam records and common installation folders; accepts a manually selected folder or executable.
 - **Local library:** scans `.pak` packages and matching `.ucas` / `.utoc` companions.
+- **Library maintenance:** check tracked Workshop downloads for updates; review and delete unused imported bundles. Game-installed copies remain separate.
 - **Profiles:** save, duplicate, rename, reorder and switch between mod selections.
 - **Load lists:** import and export `modlist.txt`.
 - **Controlled installation:** copies selected packages into `ConanSandbox/Mods`, reuses identical files, and blocks conflicting files instead of overwriting them.
@@ -61,9 +62,23 @@ Click **Activate Mods**. Review the proposed changes, close the game, tick the c
 
 ## Availability
 
-**Development preview: v0.3.0 for Windows x64.** This repository currently contains the product showcase and illustrated guide. A public application download has **not** been published yet; there is no installer to download from this page today.
+**First public preview: v0.4.1 for Windows x64.** [Open the release and download the Windows ZIP](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.4.1). Extract the whole folder, then run **ConanForge.exe**. Requires the [Microsoft Edge WebView2 Runtime](https://developer.microsoft.com/en-us/microsoft-edge/webview2/). This portable preview is unsigned; no installer or mod files are bundled.
 
-The local preview has been built and exercised during development. Before distributing binaries more widely, the project still needs clean-machine testing, the Nexus integration's public-distribution preparation and a source-license decision. The [roadmap](docs/ROADMAP.md) separates implemented features from future work.
+The release includes checksums, source code and third-party notices. **Nexus uses browser download and manual import in this public build.** Direct Nexus API downloads and update checks await application registration and account testing. Clean-machine installation and every mod combination have not been qualified. See the [release notes](docs/RELEASE-v0.4.1.md) and [roadmap](docs/ROADMAP.md).
+
+### Library maintenance in v0.4.1
+
+![Mod library with source labels, update checks and reviewed deletion controls.](docs/images/07-library-maintenance.png)
+
+### Nexus browser imports
+
+![Nexus page explaining website downloads and local ZIP or PAK import.](docs/images/08-nexus-public.png)
+
+## Build and contribute
+
+The original source and documentation are available under the [MIT license](LICENSE). Branding is not a grant of trademark rights; the startup sound and dependencies retain their [third-party terms](THIRD_PARTY_NOTICES.md).
+
+On Windows, install Node.js 26, Rust/rustup, Visual Studio C++ build tools and WebView2. The repository pins its Rust toolchain. Run `npm ci`, then `npm run tauri dev`. See [development instructions](docs/DEVELOPMENT.md) for tests and release builds.
 
 ## Know what is protected
 

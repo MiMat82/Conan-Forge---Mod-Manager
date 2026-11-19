@@ -1,6 +1,6 @@
 # ConanForge: illustrated user guide
 
-**For the v0.3.0 Windows preview.** Follow the numbered circles in each picture. Images show the actual interface with fictional example mods and neutral paths; your filenames, folders and sizes will differ. The pictured Workshop number is an example, not a recommended download.
+**For the v0.4.1 public preview.** Follow the numbered circles in the walkthrough images, which retain the v0.3.0 layout. New library and Nexus images show v0.4.1. All images use fictional example mods and neutral paths; your filenames, folders and sizes will differ. The pictured Workshop number is an example, not a recommended download.
 
 [Back to the product page](../README.md) · [Roadmap](ROADMAP.md)
 
@@ -8,9 +8,9 @@
 
 The application requires Windows x64, the Microsoft Edge WebView2 runtime and a Conan Exiles client installation. Online downloads also need internet access; scanning, profiles and local imports work locally.
 
-A public download is still being prepared. When the Windows package is available:
+Get the package from the [official v0.4.1 release](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.4.1):
 
-1. Download `ConanForge-Windows.zip` from an official release in this repository.
+1. Download `ConanForge-v0.4.1-windows-x64.zip`. The source ZIP is for developers.
 2. Right-click the ZIP and choose **Extract All**. Keep the accompanying documentation and license files.
 3. Run `ConanForge.exe` from the extracted folder. Do not run it from inside the ZIP.
 4. The transparent logo intro plays three short smithing strikes, then opens the manager. **Skip intro**, **Escape** or **Enter** opens it immediately.
@@ -68,9 +68,9 @@ A completed download is in your **library**. It is not yet activated.
 
 ### Nexus Mods or a file you already downloaded
 
-![1 Nexus Mods tab. 2 Session API key area. 3 Local ZIP or PAK import.](images/06-nexus-local.webp)
+![Nexus website download guidance and local import controls in v0.4.1.](images/08-nexus-public.png)
 
-There are two routes:
+The public build uses browser downloads and local import. Select **Nexus Mods**, then **Browse website** to open the Enhanced catalog.
 
 **Import a browser download**
 
@@ -80,14 +80,7 @@ There are two routes:
 
 Keep matching `.ucas` and `.utoc` files beside the `.pak` when importing a package. Extract RAR and 7z archives first; this preview directly imports ZIP and PAK files.
 
-**Use the preview's Nexus connection**
-
-1. Select **Nexus Mods**.
-2. Use **Get a key ↗** and enter your own personal API key, then **Connect**. The key remains in memory for this app session and is not saved to the database.
-3. Paste a URL or mod ID from the **Conan Exiles Enhanced** Nexus catalog and click **Look up mod**, or choose **Show recently added mods**.
-4. Select an available ZIP/PAK file and follow the displayed download requirements.
-
-The implemented direct-download route supports Premium authorization. Other accounts need a matching, unexpired website-issued `nxm://` link or a manual browser download followed by import. The app does not replace another manager's link handler or bypass authorization. Live free/Premium account download qualification remains outstanding.
+Direct Nexus API connections, API downloads and automatic Nexus update checks are disabled in this public build while application registration and live-account testing are pending. You do not need to enter an API key to use browser downloads and imports.
 
 The Legacy Conan catalog and Enhanced catalog are separate. Do not substitute a Legacy numeric ID into the Enhanced catalog.
 
@@ -105,6 +98,27 @@ Never include an API key or a private download link in a public issue.
 Use the search field for filenames or Workshop IDs. **Scan folders** refreshes the library if you added files outside the app.
 
 For another setup, use **+ New profile** or **Duplicate**. Choose a useful name such as “Solo building” or “Co-op world”. Save or discard unsaved edits before switching profiles.
+
+### Check for updates (v0.4.0)
+
+On a **Library copy** card, click **Check for updates**. The result includes the check time; checks happen only when requested and do not download or activate anything.
+
+- **Workshop:** compares the item's current update timestamp with the timestamp recorded when ConanForge downloaded that copy. A changed timestamp can include changes to the item page, so review the source before downloading.
+- **Nexus:** use **View source** to review updates manually. Automatic Nexus checks are disabled in the public build, including for older Nexus-tracked imports.
+- **Local import:** without a recorded provider and file version, an automatic comparison is unavailable. Check the original download page.
+- **External / game copy:** source files discovered by scanning are not managed downloads. Checks and deletion are available on the corresponding imported **Library copy**.
+
+Use **View source** to inspect the mod page and **Discover & import** to download a version you choose. Downloads do not switch saved profiles or overwrite game files. Reviewed replacement of an older installed version, including package backups and restore, is the next planned phase. Current Apply still blocks conflicting files with different contents.
+
+### Delete an imported library copy (v0.4.0)
+
+1. Remove its entries from **every profile that uses them**, and save those profiles. Unticking an entry keeps its file reference, so it does not make that file deletable. Save or discard unfinished edits before opening deletion.
+2. In **Mod library**, click **Delete library copy…**. Review the package names, number of files, total size and folder. An imported archive or folder can contain several packages; deletion covers that entire imported bundle and all its companions.
+3. Click **Delete library copy permanently** only when that is what you intend. Cancel closes the review without deleting anything.
+
+Deletion is blocked by saved profile references, direct references from the current game's load list, modified content, unexpected files, or redirected folders. It removes the app-owned copy and its library record; it does not delete Steam Workshop originals, source downloads or copies already installed in the game. To deactivate an installed mod, remove it from the selected load order and **Apply**. Game-installed package cleanup is a separate, future feature.
+
+![Library controls in the v0.4.1 public preview.](images/07-library-maintenance.png)
 
 ## 4. Choose and order your mods
 
