@@ -353,7 +353,7 @@ pub fn site_url(site: &str, id: Option<&str>) -> Result<String> {
         _ => return Err("Unknown provider page.".into()),
     })
 }
-fn open_site(url: &str) -> Result<()> {
+pub(crate) fn open_site(url: &str) -> Result<()> {
     #[cfg(windows)]
     {
         let wide: Vec<u16> = url.encode_utf16().chain(Some(0)).collect();
@@ -383,4 +383,16 @@ pub fn status() -> Value {
         {"name":"Steam Workshop", "available":true, "detail":"Public item lookup; optional isolated SteamCMD anonymous downloads. Some items require Steam account ownership."},
         {"name":"Nexus Mods", "available":nexus::API_ENABLED, "detail":if nexus::API_ENABLED {"Personal API testing build; not for public distribution."} else {"Browse Nexus in your browser and import downloaded ZIP/PAK files. Direct API features await registration."}}
     ])
+}
+
+#[cfg(test)]
+mod app_update_guard_tests {
+    #[test]
+    fn active_transfer_blocks_app_update_backup_and_install_preparation() {
+        let dir = tempfile::tempdir().unwrap();
+        let engine = crate::Engine::open(dir.path()).unwrap();
+        engine.online.progress.job.lock().unwrap().running = true;
+        assert!(crate::app_updates::backup_before_install(&engine, true).is_err());
+        assert!(!dir.path().join("backups").exists());
+    }
 }

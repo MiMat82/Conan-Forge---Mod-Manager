@@ -1,30 +1,34 @@
-# Windows setup — v0.4.1
+# Windows setup and app updates
 
 ## Install
 
-1. Download **ConanForge-v0.4.1-windows-x64-setup.exe** from the [official release](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.4.1).
-2. Run the setup wizard, review the license and choose an installation folder.
-3. Finish setup and open **ConanForge Mod Manager** from the Windows Start menu.
+1. Download **ConanForge-v0.5.0-windows-x64-setup.exe** from the [official release](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.5.0).
+2. Close any open ConanForge copy, run setup and choose an installation folder.
+3. Open **ConanForge Mod Manager** from the Windows Start menu.
 
-The installer is for Windows x64 and installs for your current Windows user. If Microsoft Edge WebView2 is missing, setup downloads Microsoft's bootstrapper and installs the runtime; this requires internet access. The installer and app are currently unsigned, so Windows may display an unknown-publisher warning.
+Setup installs for your current Windows user on Windows x64. If Microsoft Edge WebView2 is missing, setup downloads Microsoft's bootstrapper; this requires internet access. The app and setup do not yet have a Windows Authenticode certificate, so Windows may show an unknown-publisher warning. The separate updater signature is checked by ConanForge and does not remove that Windows warning.
 
-Existing profiles and the imported library stay under `%LOCALAPPDATA%\com.local.conanmodmanager`. Setup installs the manager and documentation; it does not activate mods or alter the game or subscribed Workshop files. Use **Activate Mods** inside the app when you want to review and apply a load order.
+Existing profiles and imported packages stay under `%LOCALAPPDATA%\com.local.conanmodmanager`. Setup installs the manager and documentation. Mod activation remains an explicit action inside the app.
 
-Use **Windows Settings → Apps → Installed apps → ConanForge Mod Manager → Uninstall** to remove the installed program. Keep any option to remove application data unchecked if you want to retain your profiles, imports and backups. Game-installed mod copies are separate from the manager installation.
+**Upgrading from v0.4.1:** install v0.5.0 manually once. Older copies have no updater. Future releases can be installed through **App updates** in the installed v0.5.0 app. Portable copies can check for updates and open the releases page; use setup once to enable in-app installation.
 
-The portable Windows ZIP remains available for users who prefer extraction to installation. Close an existing portable or installed ConanForge before running another copy.
+## Update from the app
 
-## Build this installer
+Startup checks are enabled by default. Checks contact the project's public GitHub update feed and notify you when a newer version is available. They do not download or install it. Turn off **Check for app updates at startup** to check manually instead.
 
-The installer is an additional package for the existing v0.4.1 release. The original release tag, portable ZIP and source ZIP remain unchanged. Its application executable is byte-for-byte the same as the published portable executable; only the installer configuration and accompanying documentation are new.
+1. Open **App updates**, or follow the notification's **Review app update** button.
+2. Read the release notes and choose **Download app update**. ConanForge checks the installer's signature and its signed version.
+3. Save unfinished profile/location changes and wait for any mod transfer to finish.
+4. Select **Install and restart…**, tick the confirmation and choose **Install and restart**.
 
-1. Run `npm ci` in this checkout.
-2. Extract `ConanForge.exe` from the official v0.4.1 Windows ZIP and place a copy at `src-tauri/target/release/conan-mod-manager.exe`. Preserve any local development executable separately first.
-3. Run `npm run installer:bundle` on Windows. The script checks the application SHA-256 before and after bundling. Tauri downloads its NSIS build tools if needed.
-4. The setup executable is written under `src-tauri/target/release/bundle/nsis/`.
+The app backs up its SQLite database under `backups/app-updates/before-update-*/manager.sqlite3`, closes, runs setup and reopens. This backup covers app settings, profiles and acquisition records; it is not a backup of mod packages or world saves. A failed backup or signature check prevents installation. Offline checks leave the app usable; try again later.
 
-This packaging command does not compile the application. It uses `--no-binary-patching` so the executable's release hash remains intact. The expected v0.4.1 SHA-256 is `c68d6813646c9041210cea60efc9976d6f38e8750b2769dd7aff4ca541e7279c`. A rebuilt or modified binary must be qualified as a separate application build before distribution.
+## Uninstall
 
-Configuration: `src-tauri/tauri.installer.conf.json`. The packaging checkout includes the app's MIT license, third-party notices, sound/dependency licenses and illustrated guide as installed resources.
+Use **Windows Settings → Apps → Installed apps → ConanForge Mod Manager → Uninstall**. Leave any option to remove application data unchecked to keep profiles, imports and backups. Game-installed mod copies are separate from the manager installation.
 
-The installer uses [Tauri's NSIS packaging](https://v2.tauri.app/distribute/windows-installer/) and its download-bootstrapper WebView2 installation mode. A clean Windows machine without WebView2 is a separate verification boundary from an installation test on a development PC.
+## Publisher workflow
+
+See [Publishing signed updates](PUBLISHING.md). The earlier v0.4.1 installer wrapped the existing portable executable without patching it. From v0.5.0 onward, build the current source and let Tauri mark the executable as an NSIS installation before signing the setup. Qualify the final packaged executable, not a pre-bundle copy.
+
+The installer uses [Tauri NSIS packaging](https://v2.tauri.app/distribute/windows-installer/); updates use the [Tauri updater](https://v2.tauri.app/plugin/updater/). A clean machine without WebView2 remains a separate qualification boundary.

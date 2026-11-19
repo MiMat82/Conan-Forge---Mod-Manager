@@ -1,12 +1,12 @@
 # ConanForge Mod Manager
 
-Public preview, version 0.4.1. Windows desktop application for Conan Exiles Enhanced using Tauri 2, Rust, React + TypeScript, Vite and bundled SQLite. This is an independent manager; it is not affiliated with Funcom, Valve or Nexus Mods.
+Public preview, version 0.5.0. Windows desktop application for Conan Exiles Enhanced using Tauri 2, Rust, React + TypeScript, Vite and bundled SQLite. This is an independent manager; it is not affiliated with Funcom, Valve or Nexus Mods.
 
 The supplied ConanForge logo now appears in the manager and Windows application icon. Startup shows a transparent floating logo with three brief forge strikes, then opens the manager. Click **Skip intro**, press **Escape** or **Enter** to open immediately. Reduced-motion preferences are respected, and audio/page failure has a fallback. Existing profiles, settings and app-data location are retained. See [branding and sound credits](BRANDING.md).
 
 ## Discover and import
 
-Open **Discover & import**. No provider is contacted automatically at startup.
+Open **Discover & import**. No mod provider is contacted automatically at startup. A separate app-update check contacts GitHub by default and can be disabled in App updates.
 
 - **Steam Workshop:** paste a Workshop item URL or ID to see its title, description, size and update date. **Browse website** opens Steam's full catalog. **Download to library** automatically finds SteamCMD or downloads Valve's official launcher if missing. Windows verifies its signature and Valve publisher before it is cached or run. The manager copies the verified launcher to a new private working folder, runs it anonymously, waits for updater children, then imports the downloaded packages. The original SteamCMD installation and subscribed Workshop folders are not modified. Some items require account ownership; use Steam itself for those, then add its Workshop folder as a read-only scan source.
 - **Nexus Mods:** open the Enhanced catalog in the browser, download a compatible mod there, then import its ZIP/PAK or extracted folder. The public build does not request API keys. Direct Nexus API features remain available only behind the private `nexus-testing` Cargo feature pending registration and account qualification.
@@ -18,7 +18,7 @@ Public releases must be built with default features. Do not enable `nexus-testin
 
 ## Run the app
 
-Download the EXE installer from the [v0.4.1 release](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.4.1), run setup, then use the Start menu shortcut. The portable ZIP is also available. Both are unsigned. See [installer packaging](INSTALLER.md) for the separate, hash-checked bundle command; it wraps the existing public executable without rebuilding or patching it.
+Download the EXE installer from the [v0.5.0 release](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.5.0), run setup, then use the Start menu shortcut. The portable ZIP is also available. Windows Authenticode signing is not yet included. In-app updates verify a separate cryptographic signature tied to the installer version. See [installer instructions](INSTALLER.md) and the [publisher workflow](PUBLISHING.md).
 
 To develop from source, install Node.js 26, Rust via rustup, and the Visual Studio C++ Build Tools/Windows SDK. The project pins Rust 1.99.1; it does not change your global toolchain.
 
@@ -38,7 +38,7 @@ The binary is `src-tauri/target/release/conan-mod-manager.exe`. No separate fron
 Run `npm run check` for frontend tests, the production web build and Rust tests.
 Run `cargo clippy --manifest-path src-tauri/Cargo.toml --all-targets -- -D warnings`
 and `cargo fmt --manifest-path src-tauri/Cargo.toml -- --check` for Rust checks.
-After a frontend build, `npm run test:ui` runs 11 headless Chrome checks with fictional
+After a frontend build, `npm run test:ui` runs 19 headless Chrome checks with fictional
 native responses and saves results/screenshots under ignored `release/qa/`. Set
 `CHROME_PATH` if Chrome is not in its usual Windows Program Files folder. This does
 not call providers or modify a real collection, and is not a native-desktop test.
@@ -76,6 +76,7 @@ Application data: `%LOCALAPPDATA%\com.local.conanmodmanager\`.
 - `tools/steamcmd/steamcmd.exe`: verified launcher cache. Setup checks this first, then PATH, beside the app and common SteamCMD folders on fixed drives. It does not crawl whole disks or download anything at startup.
 - `library/transfer-*`: completed immutable-by-convention managed package versions. Keep these folders while profiles reference them.
 - `staging/transfer-*`: private in-progress download/extraction folders. Normal failures/cancellation remove them. A crash can leave staging folders; they are never automatically scanned. Close all app instances before manually removing abandoned staging data.
+- `backups/app-updates/before-update-*/manager.sqlite3`: complete SQLite snapshot taken before explicit app-update installation.
 - `backups/apply-*/original.txt`: exact previous bytes, if a previous list existed.
 - `proposed.txt`, `manifest.json`: proposal, target, profile, timestamp, source/destination copy plan and SHA-256 hashes.
 - `applied.json`: written only after the final load list was verified. A missing receipt means completion is not established; inspect the live file against the manifest before taking action.
@@ -104,6 +105,6 @@ The Rust tests create isolated synthetic game/Workshop directories. They never d
 
 The initially empty workspace is now a standalone Git repository. `src/App.tsx` and `src/domain.ts` own the interface and profile editing. `src-tauri/src/lib.rs` exposes one typed action boundary, using blocking workers so file operations do not block the webview event loop. Rust modules separate detection, scanning, parsing, storage, path validation and deployment. Tauri grants only the native dialogs needed; there is no frontend filesystem, shell or HTTP permission, and the release webview has a restrictive CSP.
 
-`src-tauri/src/integrations/` contains provider APIs, the managed importer and background transfer state. `src/Discover.tsx` owns the provider interface. Transfers run outside the profile engine mutex; status/cancel remain available. Provider metadata is rendered as text, remote HTML/images are not loaded into the webview, and only fixed official browser destinations can be opened. Server management, automatic update installation, authenticated SteamCMD login, dependency/conflict analysis and in-game compatibility checking remain outside this phase.
+`src-tauri/src/integrations/` contains provider APIs, the managed importer and background transfer state. `src/Discover.tsx` owns the provider interface. Transfers run outside the profile engine mutex; status/cancel remain available. Provider metadata is rendered as text, remote HTML/images are not loaded into the webview, and only fixed official browser destinations can be opened. App updates use `src-tauri/src/app_updates.rs` and `src/AppUpdates.tsx`: startup/manual checks, exact official asset URL validation, signed-version verification, installed-copy eligibility, explicit installation and a pre-install SQLite backup. The native command rejects installation during mod transfers. Frontend edits must be saved or discarded first. Server management, unattended installation, authenticated SteamCMD login, dependency/conflict analysis and in-game compatibility checking remain outside this phase.
 
 Implementation reaches frontend callers, Rust command dispatch, SQLite schema version 2, Tauri/version configuration, dependency lockfiles, fixtures, and documentation. Existing game data remains outside the project. Public repository material was used as a behavioral reference, not copied implementation. See [Third-party notices](../THIRD_PARTY_NOTICES.md) and [validation results](PHASE2-VALIDATION.md).

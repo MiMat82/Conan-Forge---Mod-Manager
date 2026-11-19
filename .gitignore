@@ -33,3 +33,7 @@ dist-ssr
 *.utoc
 /release/
 *.zip
+*.key
+*.dpapi
+*.pem
+!src-tauri/updater-public.key

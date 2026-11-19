@@ -1,7 +1,7 @@
 {
   "name": "conan-mod-manager",
   "private": true,
-  "version": "0.4.1",
+  "version": "0.5.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,7 +12,8 @@
     "test:ui": "node scripts/verify-ui.mjs",
     "check": "npm test && npm run build && cargo test --manifest-path src-tauri/Cargo.toml",
     "desktop:build": "tauri build --no-bundle",
-    "installer:bundle": "node scripts/verify-release-binary.mjs && tauri bundle --bundles nsis --no-binary-patching --config src-tauri/tauri.installer.conf.json && node scripts/verify-release-binary.mjs"
+    "installer:bundle": "powershell -NoProfile -File scripts/publisher.ps1 -Action Bundle",
+    "installer:build": "npm run desktop:build && npm run installer:bundle"
   },
   "dependencies": {
     "react": "^19.1.0",

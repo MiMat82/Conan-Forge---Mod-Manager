@@ -1,3 +1,4 @@
+pub mod app_updates;
 pub mod deployment;
 pub mod detection;
 pub mod integrations;
@@ -244,6 +245,8 @@ async fn request(
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_dialog::init())
+        .plugin(tauri_plugin_updater::Builder::new().build())
+        .manage(app_updates::AppUpdates::default())
         .setup(|app| {
             app.manage(startup::Startup::default());
             let data = app.path().app_local_data_dir()?;
@@ -264,6 +267,7 @@ pub fn run() {
         })
         .invoke_handler(tauri::generate_handler![
             request,
+            app_updates::app_update,
             startup::show_intro,
             startup::finish_intro
         ])

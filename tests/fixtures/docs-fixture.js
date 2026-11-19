@@ -1,5 +1,6 @@
 window.isTauri = true;
 window.__docsCalls = [];
+window.__appUpdateTest = {next:null,error:null,checkAtStartup:true,installed:true};
 const game = "D:\\Games\\Conan Exiles Enhanced";
 const names = ["DesertStructures", "TravelCompass", "CraftingTools"];
 const mods = names.map((name,i)=>({name,path:"C:\\Mods\\Library\\"+name+".pak",files:[{path:"C:\\Mods\\Library\\"+name+".pak",size:(i+1)*33554432,modified:1}],workshopId:null,warnings:[]}));
@@ -10,6 +11,15 @@ const status={nexusApiEnabled:false,connected:false,premium:false,job:{running:f
 window.__TAURI_INTERNALS__ = {invoke:async(command,args)=>{
   const action=args?.action;
   window.__docsCalls.push(structuredClone({command,action}));
+  if(command==='app_update') {
+    const state=window.__appUpdateTest;
+    if(action.kind==='status')return {currentVersion:'0.5.0',checkAtStartup:state.checkAtStartup,installed:state.installed};
+    if(action.kind==='preference'){state.checkAtStartup=action.enabled;return action.enabled;}
+    if(action.kind==='check'){if(state.error)throw Error(state.error);return structuredClone(state.next);}
+    if(action.kind==='download'){args.progress.onmessage?.({bytes:1024,total:1024});return {...state.next,downloaded:true};}
+    if(action.kind==='install')throw Error('Fixture: finish the active import before updating.');
+    if(action.kind==='open_releases')return null;
+  }
   if(command!=="request") throw Error("Native dialogs are not available in this illustrated demo.");
   let result;
   switch(action.type){
@@ -26,3 +36,5 @@ window.__TAURI_INTERNALS__ = {invoke:async(command,args)=>{
   }
   return structuredClone(result);
 }};
+window.__TAURI_INTERNALS__.transformCallback=()=>Math.floor(Math.random()*1000000);
+window.__TAURI_INTERNALS__.unregisterCallback=()=>{};

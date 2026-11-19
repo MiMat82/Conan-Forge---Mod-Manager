@@ -1,6 +1,6 @@
 # ConanForge: illustrated user guide
 
-**For the v0.4.1 public preview.** Follow the numbered circles in the walkthrough images, which retain the v0.3.0 layout. New library and Nexus images show v0.4.1. All images use fictional example mods and neutral paths; your filenames, folders and sizes will differ. The pictured Workshop number is an example, not a recommended download.
+**For the v0.5.0 public preview.** Follow the numbered circles in the walkthrough images, which retain the v0.3.0 layout. Library and Nexus images show v0.4.1; the app-update image shows v0.5.0 with a fictional future update. All images use fictional example mods and neutral paths; your filenames, folders and sizes will differ. The pictured Workshop number is an example, not a recommended download.
 
 [Back to the product page](../README.md) · [Roadmap](ROADMAP.md)
 
@@ -8,16 +8,16 @@
 
 The application requires Windows x64, the Microsoft Edge WebView2 runtime and a Conan Exiles client installation. Online downloads also need internet access; scanning, profiles and local imports work locally.
 
-Get the package from the [official v0.4.1 release](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.4.1):
+Get the package from the [official v0.5.0 release](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.5.0):
 
-1. Download **`ConanForge-v0.4.1-windows-x64-setup.exe`**. The source ZIP is for developers.
+1. Download **`ConanForge-v0.5.0-windows-x64-setup.exe`**. The source ZIP is for developers.
 2. Run the setup wizard, review the license and choose the installation folder. Setup creates a Start menu shortcut and an entry in Windows Installed apps.
 3. Open **ConanForge Mod Manager** from the Start menu or the setup wizard's Finish page.
 4. The transparent logo intro plays three short smithing strikes, then opens the manager. **Skip intro**, **Escape** or **Enter** opens it immediately.
 
 Setup installs for your current user and downloads Microsoft WebView2 if it is missing; internet is needed for that step. The preview is unsigned, so Windows may show an unknown-publisher warning. Do not disable Windows protection to run an untrusted copy.
 
-**Portable alternative:** download `ConanForge-v0.4.1-windows-x64.zip`, choose **Extract All**, and run `ConanForge.exe` from the extracted folder. Keep the documentation and license files. If needed, install the Evergreen Runtime from [Microsoft's WebView2 page](https://developer.microsoft.com/en-us/microsoft-edge/webview2/).
+**Portable alternative:** download `ConanForge-v0.5.0-windows-x64.zip`, choose **Extract All**, and run `ConanForge.exe` from the extracted folder. Keep the documentation and license files. If needed, install the Evergreen Runtime from [Microsoft's WebView2 page](https://developer.microsoft.com/en-us/microsoft-edge/webview2/).
 
 See [installation and removal](INSTALLER.md) for preserving your existing profiles and imported library.
 
@@ -150,6 +150,18 @@ On success, ConanForge reports completion and the backup location. **Restart Con
 
 Do not expect imported mods to appear in the game before this step.
 
+## 6. Update ConanForge itself
+
+![App update screen: startup checks, release notes, and an explicit Install and restart button. Fictional future update shown.](images/09-app-updates.png)
+
+1. Open **App updates**, or click **Review app update** in a startup notification. You can disable startup checks here and use **Check for app updates** manually.
+2. Review the notes, then click **Download app update**. Downloading does not install it.
+3. Save your edits and finish any mod downloads/imports. Choose **Install and restart…**, tick the confirmation and confirm installation.
+
+ConanForge verifies the installer's signature and version, backs up its database, runs setup and reopens. Existing mods, profiles and game files are retained. If you use v0.4.1 or a portable copy, run the v0.5.0 Windows installer once first. See [installation and recovery details](INSTALLER.md).
+
+This updates the manager application. Use **Mod library → Check for updates** to check a tracked Workshop mod instead.
+
 ## What happens to my files?
 
 ```mermaid
@@ -175,7 +187,7 @@ flowchart LR
 
 Apply uses local filenames such as `*ExampleMod.pak` in profile order. Identical game files are reused. Conflicting files are blocked. Disabled or unrelated packages already in the Mods folder are left in place, so they may remain visible in the game's available-mods list even when absent from the active load list.
 
-A later change to a source file does not silently replace the installed game copy. Automatic replacement/update installation is not implemented.
+A later change to a source file does not silently replace the installed game copy. Automatic replacement of game-installed mod files is not implemented. App updates are separate.
 
 ## Import, export and recovery
 

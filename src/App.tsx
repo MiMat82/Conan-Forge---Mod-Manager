@@ -23,6 +23,7 @@ import {
 } from "./domain";
 import "./App.css";
 import Discover from "./Discover";
+import AppUpdates from "./AppUpdates";
 
 const request = <T,>(type: string, fields = {}) =>
   invoke<T>("request", { action: { type, ...fields } });
@@ -63,7 +64,7 @@ function Modal({
 
 export default function App() {
   const [page, setPage] = useState<
-    "order" | "library" | "locations" | "discover"
+    "order" | "library" | "locations" | "discover" | "updates"
   >("order");
   const [data, setData] = useState<Bootstrap | null>(null);
   const [draft, setDraft] = useState<Profile | null>(null);
@@ -75,6 +76,7 @@ export default function App() {
   const [detected, setDetected] = useState<Detection | null>(null);
   const [search, setSearch] = useState("");
   const [busy, setBusy] = useState("");
+  const [appInstalling, setAppInstalling] = useState(false);
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
   const [preview, setPreview] = useState<Preview | null>(null);
@@ -245,11 +247,14 @@ export default function App() {
           >
             <span>⌖</span> Locations & storage
           </button>
+          <button className={page === "updates" ? "active" : ""} onClick={() => setPage("updates")}>
+            <span>↓</span> App updates
+          </button>
         </nav>
         <div className="sidebar-bottom">
           <span className="status-dot" /> Local workspace
           <p>Workshop originals stay untouched.</p>
-          <small>v0.4.1 · Public preview</small>
+          <small>v0.5.0 · Public preview</small>
         </div>
       </aside>
       <main>
@@ -263,13 +268,13 @@ export default function App() {
                   ? "LOAD ORDER"
                   : page === "library"
                     ? "MOD LIBRARY"
-                    : "LOCATIONS"}
+                    : page === "updates" ? "APP UPDATES" : "LOCATIONS"}
             </strong>
           </span>
           <span className="pill">● Your local workspace</span>
         </header>
         <div className="content">
-          <div className="page-heading">
+          <div className="page-heading" hidden={page === "updates"}>
             <div>
               <p className="eyebrow">CONAN EXILES ENHANCED</p>
               <h1>
@@ -304,8 +309,12 @@ export default function App() {
             {busy && <div className="alert">{busy}</div>}
             {notice && <div className="alert success">{notice}</div>}
           </div>
+          <AppUpdates ready={!!data} shown={page === "updates"} unsaved={dirty || locationsDirty}
+            blocked={!!busy || !!preview || !!libraryDelete || !!newProfile || deleting || !!importing}
+            onOpen={() => setPage("updates")} onInstalling={setAppInstalling} />
           <fieldset
-            disabled={!!busy || !data}
+            disabled={!!busy || !data || appInstalling}
+            hidden={page === "updates"}
             className="workspace"
             aria-busy={!!busy}
           >

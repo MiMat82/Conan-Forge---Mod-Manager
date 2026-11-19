@@ -6,7 +6,7 @@
 <p align="center"><strong>A Windows workspace for Conan Exiles Enhanced mods.</strong><br>Bring in your mods, build a load order, and review every change before it reaches your game.</p>
 <p align="center">
   <a href="docs/USER-GUIDE.md"><strong>Illustrated user guide</strong></a> ·
-  <a href="https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/download/v0.4.1/ConanForge-v0.4.1-windows-x64-setup.exe"><strong>Download Windows installer</strong></a> ·
+  <a href="https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/download/v0.5.0/ConanForge-v0.5.0-windows-x64-setup.exe"><strong>Download Windows installer</strong></a> ·
   <a href="docs/ROADMAP.md">Development roadmap</a> ·
   <a href="https://github.com/MiMat82/Conan-Forge---Mod-Manager/issues">Feedback</a>
 </p>
@@ -57,16 +57,23 @@ Click **Activate Mods**. Review the proposed changes, close the game, tick the c
 - **Profiles:** save, duplicate, rename, reorder and switch between mod selections.
 - **Load lists:** import and export `modlist.txt`.
 - **Controlled installation:** copies selected packages into `ConanSandbox/Mods`, reuses identical files, and blocks conflicting files instead of overwriting them.
+- **App updates:** startup notification, release notes, a verified download and explicit installation/restart. Existing v0.4.1 users install v0.5.0 manually once.
 - **ConanForge identity:** transparent logo intro, three brief smithing strikes, a Skip control and a matching Windows icon.
 - **Under the hood:** Tauri 2, Rust, TypeScript/React and local SQLite storage.
 
 ## Availability
 
-**First public preview: v0.4.1 for Windows x64.** [Download the EXE installer](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/download/v0.4.1/ConanForge-v0.4.1-windows-x64-setup.exe), run the setup wizard, then open **ConanForge Mod Manager** from the Start menu. Setup installs for your current Windows user and downloads Microsoft WebView2 if needed (internet required). The app and installer are unsigned.
+**Public preview: v0.5.0 for Windows x64.** [Download the EXE installer](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/download/v0.5.0/ConanForge-v0.5.0-windows-x64-setup.exe), run the setup wizard, then open **ConanForge Mod Manager** from the Start menu. Setup installs for your current Windows user and downloads Microsoft WebView2 if needed (internet required). Windows Authenticode signing is not yet included; the installer has a separate signature verified by the in-app updater.
 
-Prefer a portable app? The [Windows ZIP remains available](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/download/v0.4.1/ConanForge-v0.4.1-windows-x64.zip): extract the whole folder and run **ConanForge.exe**. [Installation and removal instructions](docs/INSTALLER.md). Neither download includes mods or game files.
+Prefer a portable app? The [Windows ZIP remains available](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/download/v0.5.0/ConanForge-v0.5.0-windows-x64.zip): extract the whole folder and run **ConanForge.exe**. [Installation and removal instructions](docs/INSTALLER.md). Neither download includes mods or game files.
 
-The release includes checksums, source code and third-party notices. **Nexus uses browser download and manual import in this public build.** Direct Nexus API downloads and update checks await application registration and account testing. Clean-machine installation and every mod combination have not been qualified. See the [release notes](docs/RELEASE-v0.4.1.md) and [roadmap](docs/ROADMAP.md).
+The release includes checksums, source code and third-party notices. **Nexus uses browser download and manual import in this public build.** Direct Nexus API downloads and update checks await application registration and account testing. Clean-machine installation and every mod combination have not been qualified. See the [release notes](docs/RELEASE-v0.5.0.md) and [roadmap](docs/ROADMAP.md).
+
+### App updates in v0.5.0
+
+![App updates with startup checking enabled and a verified example release ready for explicit installation.](docs/images/09-app-updates.png)
+
+*Illustrated with a fictional future version; it is not an available release. [How app updates work →](docs/INSTALLER.md#update-from-the-app)*
 
 ### Library maintenance in v0.4.1
 
