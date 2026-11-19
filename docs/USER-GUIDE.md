@@ -10,12 +10,16 @@ The application requires Windows x64, the Microsoft Edge WebView2 runtime and a 
 
 Get the package from the [official v0.4.1 release](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.4.1):
 
-1. Download `ConanForge-v0.4.1-windows-x64.zip`. The source ZIP is for developers.
-2. Right-click the ZIP and choose **Extract All**. Keep the accompanying documentation and license files.
-3. Run `ConanForge.exe` from the extracted folder. Do not run it from inside the ZIP.
+1. Download **`ConanForge-v0.4.1-windows-x64-setup.exe`**. The source ZIP is for developers.
+2. Run the setup wizard, review the license and choose the installation folder. Setup creates a Start menu shortcut and an entry in Windows Installed apps.
+3. Open **ConanForge Mod Manager** from the Start menu or the setup wizard's Finish page.
 4. The transparent logo intro plays three short smithing strikes, then opens the manager. **Skip intro**, **Escape** or **Enter** opens it immediately.
 
-If Windows reports that WebView2 is missing, get the Evergreen Runtime from [Microsoft's WebView2 page](https://developer.microsoft.com/en-us/microsoft-edge/webview2/). The current local preview is unsigned; a public signed build is not yet available. Do not disable Windows protection to run an untrusted copy.
+Setup installs for your current user and downloads Microsoft WebView2 if it is missing; internet is needed for that step. The preview is unsigned, so Windows may show an unknown-publisher warning. Do not disable Windows protection to run an untrusted copy.
+
+**Portable alternative:** download `ConanForge-v0.4.1-windows-x64.zip`, choose **Extract All**, and run `ConanForge.exe` from the extracted folder. Keep the documentation and license files. If needed, install the Evergreen Runtime from [Microsoft's WebView2 page](https://developer.microsoft.com/en-us/microsoft-edge/webview2/).
+
+See [installation and removal](INSTALLER.md) for preserving your existing profiles and imported library.
 
 Before changing an established mod setup, make a separate copy of `ConanSandbox/Saved`. ConanForge's automatic backups cover the load list, not your world or character.
 

@@ -6,14 +6,14 @@ ConanForge brings mod discovery, a local library, ordered profiles and explicit 
 
 ## Download and start
 
-1. Download **ConanForge-v0.4.1-windows-x64.zip** from [this release](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.4.1).
-2. Extract the entire ZIP to a writable folder. Run **ConanForge.exe**. Microsoft Edge WebView2 Runtime is required. This preview is unsigned and has no installer.
+1. Download **ConanForge-v0.4.1-windows-x64-setup.exe** from [this release](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.4.1).
+2. Run setup and open **ConanForge Mod Manager** from the Start menu. Setup downloads Microsoft WebView2 if missing (internet required). This preview is unsigned. The original portable ZIP remains available.
 3. Check the detected game under **Locations & storage**, or choose its folder/executable manually.
 4. Follow **Discover & import → Mod library → Load order → Activate Mods**. Review the file-copy plan, then confirm **Back up & apply** with the game closed.
 
 [Illustrated instructions and troubleshooting](USER-GUIDE.md)
 
-The source ZIP contains the same reviewed source as the release tag. `SHA256SUMS.txt` lists the Windows ZIP, source ZIP and executable hashes. For example, use `Get-FileHash .\ConanForge-v0.4.1-windows-x64.zip -Algorithm SHA256` and compare its result with that file.
+The source ZIP contains the same reviewed application source as the release tag. The installer wraps that exact executable with additional setup configuration and documentation; see [installer details](INSTALLER.md). The original tag and ZIPs remain unchanged. `SHA256SUMS.txt` includes installer and original package hashes. Use `Get-FileHash .\ConanForge-v0.4.1-windows-x64-setup.exe -Algorithm SHA256` and compare its result with that file.
 
 ## Included
 
@@ -42,6 +42,6 @@ Screenshots use fictional example packages. Browser fixtures test the interface,
 - Different-content files with the same destination filename block Apply. Automatic replacement, package rollback and game-file uninstall are future work.
 - Update checks do not download, replace or activate anything automatically. Steam metadata changes can also trigger an update notice. Nexus updates require visiting the source page in this public build.
 - A process/power failure during library deletion may leave recoverable files in app staging; automatic maintenance recovery is not included yet.
-- Windows x64 only. No signed installer, automatic app updater or bundled game/mod/SteamCMD files.
+- Windows x64 only. The installer is unsigned. No automatic app updater or bundled game/mod/SteamCMD files.
 
 Original source and documentation use [MIT](../LICENSE). Sound, dependencies and trademarks retain their separate terms; keep the included notices with the package. ConanForge is an independent project, unaffiliated with Funcom, Valve or Nexus Mods.

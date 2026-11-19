@@ -11,7 +11,8 @@
     "test": "node --test tests/*.test.mjs",
     "test:ui": "node scripts/verify-ui.mjs",
     "check": "npm test && npm run build && cargo test --manifest-path src-tauri/Cargo.toml",
-    "desktop:build": "tauri build --no-bundle"
+    "desktop:build": "tauri build --no-bundle",
+    "installer:bundle": "node scripts/verify-release-binary.mjs && tauri bundle --bundles nsis --no-binary-patching --config src-tauri/tauri.installer.conf.json && node scripts/verify-release-binary.mjs"
   },
   "dependencies": {
     "react": "^19.1.0",

@@ -1,6 +1,6 @@
 # Public preview validation — v0.4.1
 
-19 November 2026. Windows x64, Rust 1.99.1 MSVC and Node.js 26.13.1.
+19 November 2026. Windows x64, Rust 1.99.1 MSVC and Node.js 26.13.1. This report covers the original portable release. The same executable is now also distributed through the [additional Windows installer](INSTALLER.md); its validation is recorded separately on the release page.
 
 ## Automated checks
 
@@ -30,6 +30,6 @@ The Windows ZIP contains that executable, setup instructions, MIT license, guide
 - Clean Windows installation, unsigned-download prompts and missing-WebView2 onboarding remain unqualified.
 - No live Nexus API/account test was performed; public API access remains disabled pending registration and qualification.
 - Library deletion tests use temporary fixtures. Real user mods and subscribed Workshop files were not deleted or modified.
-- No application signing, installer or automatic updater is included.
+- The original package was portable only. The later installer addition does not add application signing or an automatic updater.
 
 See [release notes](RELEASE-v0.4.1.md), [Phase 4 tests](PHASE4-VALIDATION.md), and [safety and recovery](SAFETY.md) for the remaining limitations.

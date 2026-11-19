@@ -28,7 +28,11 @@ Some registry packages omit root license files. Their unmodified upstream licens
 - tauri-plugin: MIT license from the installed Tauri crate, matching the [upstream MIT license](https://github.com/tauri-apps/tauri/blob/dev/LICENSE-MIT).
 - selectors: Mozilla Public License 2.0, supplied from the installed cssparser crate's copy of that license. Exact selectors source is linked in the dependency notices.
 
-Microsoft WebView2 runtime and SDK/loader components are subject to Microsoft's terms. The application uses the system WebView2 runtime; no runtime installer is bundled. See [Microsoft WebView2 distribution documentation](https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution). SQLite's engine is public domain; the Rust bindings have their own included licenses.
+Microsoft WebView2 runtime and SDK/loader components are subject to Microsoft's terms. The application uses the system WebView2 runtime. The EXE installer downloads Microsoft's runtime bootstrapper only when needed; no runtime installer is embedded. See [Microsoft WebView2 distribution documentation](https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution). SQLite's engine is public domain; the Rust bindings have their own included licenses.
+
+## Installer components
+
+The additional Windows setup package uses unmodified NSIS 3.13, including its LZMA decompressor, and Tauri's `nsis_tauri_utils` 0.5.3 plugin. License texts are included in `licenses/installer-nsis.txt` and `licenses/installer-tauri-utils-MIT.txt`. NSIS source is available from the [official NSIS repository, v313 tag](https://github.com/kichik/nsis/tree/v313); the plugin's exact source is available at [nsis_tauri_utils-v0.5.3](https://github.com/tauri-apps/nsis-tauri-utils/tree/nsis_tauri_utils-v0.5.3). These installer components retain their upstream licenses; they are not relicensed under the application's MIT license.
 
 To regenerate the notices after changing dependencies:
 

@@ -1,8 +1,9 @@
 CONANFORGE MOD MANAGER - v0.4.1 PUBLIC PREVIEW
 
-Extract this entire folder, then run ConanForge.exe.
-Windows x64 and Microsoft Edge WebView2 Runtime are required.
-This portable preview is unsigned and has no installer.
+INSTALLER: run the setup EXE, then open ConanForge Mod Manager from Start.
+PORTABLE ZIP: extract this entire folder, then run ConanForge.exe.
+Windows x64 and Microsoft Edge WebView2 Runtime are required. Setup downloads
+WebView2 if missing (internet needed). The installer and app are unsigned.
 
 The floating logo plays three short smithing strikes at startup. Click Skip intro,
 or press Escape or Enter, to open the manager immediately.

@@ -6,7 +6,7 @@
 <p align="center"><strong>A Windows workspace for Conan Exiles Enhanced mods.</strong><br>Bring in your mods, build a load order, and review every change before it reaches your game.</p>
 <p align="center">
   <a href="docs/USER-GUIDE.md"><strong>Illustrated user guide</strong></a> ·
-  <a href="https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.4.1"><strong>Download for Windows</strong></a> ·
+  <a href="https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/download/v0.4.1/ConanForge-v0.4.1-windows-x64-setup.exe"><strong>Download Windows installer</strong></a> ·
   <a href="docs/ROADMAP.md">Development roadmap</a> ·
   <a href="https://github.com/MiMat82/Conan-Forge---Mod-Manager/issues">Feedback</a>
 </p>
@@ -62,7 +62,9 @@ Click **Activate Mods**. Review the proposed changes, close the game, tick the c
 
 ## Availability
 
-**First public preview: v0.4.1 for Windows x64.** [Open the release and download the Windows ZIP](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.4.1). Extract the whole folder, then run **ConanForge.exe**. Requires the [Microsoft Edge WebView2 Runtime](https://developer.microsoft.com/en-us/microsoft-edge/webview2/). This portable preview is unsigned; no installer or mod files are bundled.
+**First public preview: v0.4.1 for Windows x64.** [Download the EXE installer](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/download/v0.4.1/ConanForge-v0.4.1-windows-x64-setup.exe), run the setup wizard, then open **ConanForge Mod Manager** from the Start menu. Setup installs for your current Windows user and downloads Microsoft WebView2 if needed (internet required). The app and installer are unsigned.
+
+Prefer a portable app? The [Windows ZIP remains available](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/download/v0.4.1/ConanForge-v0.4.1-windows-x64.zip): extract the whole folder and run **ConanForge.exe**. [Installation and removal instructions](docs/INSTALLER.md). Neither download includes mods or game files.
 
 The release includes checksums, source code and third-party notices. **Nexus uses browser download and manual import in this public build.** Direct Nexus API downloads and update checks await application registration and account testing. Clean-machine installation and every mod combination have not been qualified. See the [release notes](docs/RELEASE-v0.4.1.md) and [roadmap](docs/ROADMAP.md).
 

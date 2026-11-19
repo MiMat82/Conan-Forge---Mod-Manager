@@ -18,7 +18,7 @@ Public releases must be built with default features. Do not enable `nexus-testin
 
 ## Run the app
 
-Download the Windows ZIP from the [v0.4.1 release](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.4.1), extract it, and run `ConanForge.exe`. It requires the Microsoft Edge WebView2 runtime. It is unsigned.
+Download the EXE installer from the [v0.4.1 release](https://github.com/MiMat82/Conan-Forge---Mod-Manager/releases/tag/v0.4.1), run setup, then use the Start menu shortcut. The portable ZIP is also available. Both are unsigned. See [installer packaging](INSTALLER.md) for the separate, hash-checked bundle command; it wraps the existing public executable without rebuilding or patching it.
 
 To develop from source, install Node.js 26, Rust via rustup, and the Visual Studio C++ Build Tools/Windows SDK. The project pins Rust 1.99.1; it does not change your global toolchain.
 
